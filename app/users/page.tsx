@@ -4,6 +4,7 @@ import React from "react";
 interface User {
   id: number;
   name: string;
+  email: string;
 }
 
 const UsersPage = async () => {
@@ -18,11 +19,25 @@ const UsersPage = async () => {
       <br />
       <Link href="/">Home</Link>
       <h1 className="font-bold text-2xl pb-5">Users</h1>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>{user.name}</li>
-        ))}
-      </ul>
+
+      <table className="table table-border">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.email}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <ul></ul>
     </>
   );
 };
